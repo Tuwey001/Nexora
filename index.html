@@ -3,68 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexora - Next-level Executive and Marketing Synergy</title>
+    <title>Nexora - Executive Assistants & Digital Marketing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <div class="logo-container">
-                    <div class="logo-icon">N</div>
-                    <span class="logo-text">Nexora</span>
-                </div>
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-icon me-2">N</div>
+                <span class="fw-bold fs-4">Nexora</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-primary cta-btn ms-2" href="contact.html">Get Started</a></li>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <!-- Updated navigation to link to actual pages -->
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="motivation.html">Motivation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="btn btn-primary" href="contact.html">Get Started</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-background"></div>
+    <!-- Hero Section with Lifestyle Images -->
+    <section id="home" class="hero-section">
         <div class="container">
-            <div class="row align-items-center min-vh-100">
+            <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="hero-content fade-in-up">
-                        <h1 class="hero-title">Top-tier Executive Assistants & Cutting-edge Digital Marketing</h1>
-                        <p class="hero-subtitle">Delegating smarter, growing faster, and achieving more with Nexora.</p>
-                        <div class="hero-cta">
-                            <a href="contact.html" class="btn btn-primary btn-lg me-3">Get Started</a>
-                            <a href="services.html" class="btn btn-outline-light btn-lg">Learn More</a>
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">Top-tier Executive Assistants & Cutting-edge Digital Marketing</h1>
+                        <p class="lead mb-4 text-muted">Delegating smarter, growing faster, and achieving more with Nexora.</p>
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <!-- Updated CTA buttons to link to contact page -->
+                            <a href="contact.html" class="btn btn-primary btn-lg">Get Started</a>
+                            <a href="services.html" class="btn btn-outline-primary btn-lg">Learn More</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="hero-visual fade-in-right">
-                        <div class="floating-card">
-                            <i class="fas fa-chart-line"></i>
-                            <h4>Growth Analytics</h4>
-                            <p>Real-time insights</p>
-                        </div>
-                        <div class="floating-card delay-1">
-                            <i class="fas fa-calendar-alt"></i>
-                            <h4>Smart Scheduling</h4>
-                            <p>Optimized calendar</p>
-                        </div>
-                        <div class="floating-card delay-2">
-                            <i class="fas fa-rocket"></i>
-                            <h4>Marketing Boost</h4>
-                            <p>Accelerated results</p>
+                    <div class="hero-images">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="image-stack">
+                                    <img src="professional-woman-working-at-modern-desk-with-lap.jpg" 
+                                         alt="Professional working" class="img-fluid rounded shadow hero-img-1">
+                                    <img src="business-executive-in-meeting-room-presenting-to-t.jpg" 
+                                         alt="Executive leadership" class="img-fluid rounded shadow hero-img-2 mt-3">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="image-stack pt-4">
+                                    <img src="marketing-team-analyzing-data-on-multiple-screens-.jpg" 
+                                         alt="Digital marketing" class="img-fluid rounded shadow hero-img-3">
+                                    <img src="person-organizing-calendar-and-schedule-on-tablet-.jpg" 
+                                         alt="Time management" class="img-fluid rounded shadow hero-img-4 mt-3">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,41 +89,143 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section py-5">
+    <!-- Lifestyle Section - Inspired by Athena -->
+    <section class="lifestyle-section bg-light">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title">Why Choose Nexora?</h2>
-                    <p class="section-subtitle">Experience the perfect synergy of executive excellence and marketing innovation</p>
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-4">Work and Life Are Broken. Let's Fix Them.</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                    We're juggling deadlines, overflowing inboxes, and endless errands—leaving our visions for success,
+                    growth, and genuine connection behind. Nexora helps you reclaim your time for what truly matters.
+                </p>
+            </div>
+            <div class="row g-3 mb-5">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="person-painting-creatively-at-easel--artistic-expr.jpg" 
+                         alt="Creative expression" class="img-fluid rounded shadow lifestyle-img">
                 </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="happy-woman-studying-at-desk-with-notebook-and-lap.jpg" 
+                         alt="Learning and growth" class="img-fluid rounded shadow lifestyle-img">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="man-jogging-on-scenic-trail-surrounded-by-nature--.jpg" 
+                         alt="Health and fitness" class="img-fluid rounded shadow lifestyle-img">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="relaxed-woman-playing-piano--music-and-personal-fu.jpg" 
+                         alt="Personal fulfillment" class="img-fluid rounded shadow lifestyle-img">
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <img src="man-smiling-while-cooking-in-modern-kitchen--work-.jpg" 
+                         alt="Work-life balance" class="img-fluid rounded shadow lifestyle-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="services" class="features-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-4">Why Choose Nexora?</h2>
+                <p class="lead text-muted">Experience the perfect synergy of executive excellence and marketing innovation</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-tie"></i>
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Elite Executive Support</h5>
+                            <p class="card-text text-muted">Top-tier assistants who understand the demands of executive leadership</p>
                         </div>
-                        <h4>Elite Executive Support</h4>
-                        <p>Top-tier assistants who understand the demands of executive leadership</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-bullhorn"></i>
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-bullhorn"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">Strategic Marketing</h5>
+                            <p class="card-text text-muted">Data-driven campaigns that deliver measurable growth and ROI</p>
                         </div>
-                        <h4>Strategic Marketing</h4>
-                        <p>Data-driven campaigns that deliver measurable growth and ROI</p>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
+                    <div class="card h-100 text-center border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="feature-icon mb-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h5 class="card-title fw-bold">24/7 Availability</h5>
+                            <p class="card-text text-muted">Global remote support ensuring your business never stops</p>
                         </div>
-                        <h4>24/7 Availability</h4>
-                        <p>Global remote support ensuring your business never stops</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories with Images -->
+    <section class="testimonials-section bg-light" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold mb-4">Nexora Empowers Today's Leaders</h2>
+                <p class="lead text-muted">Join industry leaders who trust Nexora for their executive and marketing needs</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="professional-headshot-of-confident-business-execut.jpg" 
+                                     alt="Sarah Johnson" class="testimonial-avatar me-3">
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Sarah Johnson</h6>
+                                    <small class="text-muted">CEO, TechCorp</small>
+                                </div>
+                            </div>
+                            <p class="card-text fst-italic text-muted">
+                                "Nexora transformed how I manage my time. I've gained 20+ hours per week to focus on strategic growth."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="professional-headshot-of-marketing-director-smilin.jpg" 
+                                     alt="Michael Chen" class="testimonial-avatar me-3">
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Michael Chen</h6>
+                                    <small class="text-muted">Founder, GrowthLab</small>
+                                </div>
+                            </div>
+                            <p class="card-text fst-italic text-muted">
+                                "The marketing expertise combined with executive support is unmatched. Our ROI increased by 300%."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="professional-headshot-of-successful-entrepreneur.jpg" 
+                                     alt="Emily Rodriguez" class="testimonial-avatar me-3">
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Emily Rodriguez</h6>
+                                    <small class="text-muted">Director, InnovateCo</small>
+                                </div>
+                            </div>
+                            <p class="card-text fst-italic text-muted">
+                                "Nexora doesn't just handle tasks—they anticipate needs and solve problems before they reach me."
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,14 +233,14 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section id="contact" class="cta-section">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="cta-title">Ready to Transform Your Business?</h2>
-                    <p class="cta-subtitle">Join industry leaders who trust Nexora for their executive and marketing needs</p>
-                    <a href="contact.html" class="btn btn-primary btn-lg">Start Your Journey</a>
-                </div>
+            <div class="text-center">
+                <h2 class="display-5 fw-bold mb-4">Ready to Transform Your Business?</h2>
+                <p class="lead text-muted mb-4">
+                    Join forward-thinking leaders who trust Nexora for their most important business needs
+                </p>
+                <a href="contact.html" class="btn btn-primary btn-lg">Start Your Journey</a>
             </div>
         </div>
     </section>
@@ -129,46 +248,72 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="footer-brand">
-                        <div class="logo-container">
-                            <div class="logo-icon">N</div>
-                            <span class="logo-text">Nexora</span>
-                        </div>
-                        <p class="footer-tagline">Next-level executive and marketing synergy</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="logo-icon me-2">N</div>
+                        <span class="fw-bold fs-5 text-white">Nexora</span>
+                    </div>
+                    <p class="text-light mb-3">Contact us at:</p>
+                    <p class="text-light mb-3"><a href="tel:+1234567890" class="text-light text-decoration-underline">(123) 456-7890</a></p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light fs-5"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-light fs-5"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <h5>Services</h5>
-                    <ul class="footer-links">
-                        <li><a href="services.html">Executive Support</a></li>
-                        <li><a href="services.html">Digital Marketing</a></li>
-                        <li><a href="services.html">Analytics</a></li>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3 text-white">About</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">Company</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">Leadership</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">Join Corporate</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">News</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Security</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2">
-                    <h5>Company</h5>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Careers</a></li>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3 text-white">Solutions</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="services.html" class="text-light text-decoration-none">Executive Assistant</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">Client Portal</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-light text-decoration-none">Digital Marketing</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-light text-decoration-none">Website Development</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Stay Connected</h5>
-                    <p>Get the latest insights and updates</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3 text-white">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="index.html#testimonials" class="text-light text-decoration-none">Testimonials</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">Art of Delegation</a></li>
+                        <li class="mb-2"><a href="services.html" class="text-light text-decoration-none">How It Works</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3 text-white">Assistants</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Open Positions</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Benefits</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">Life at Nexora</a></li>
+                        <li class="mb-2"><a href="#" class="text-light text-decoration-none">Career Development</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">Office Locations</a></li>
+                    </ul>
                 </div>
             </div>
-            <hr class="footer-divider">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="footer-copyright">&copy; 2024 Nexora. All rights reserved.</p>
+            <hr class="my-4 border-light">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-light mb-0">&copy; 2025 Nexora LLC</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light text-decoration-none me-4">Terms and Conditions</a>
+                    <a href="#" class="text-light text-decoration-none">Privacy Policy</a>
                 </div>
             </div>
         </div>

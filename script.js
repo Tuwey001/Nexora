@@ -1,14 +1,4 @@
-// Navbar scroll effect
-window.addEventListener("scroll", () => {
-  const navbar = document.getElementById("mainNav")
-  if (window.scrollY > 50) {
-    navbar.classList.add("scrolled")
-  } else {
-    navbar.classList.remove("scrolled")
-  }
-})
-
-// Smooth scrolling for anchor links
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault()
@@ -22,160 +12,19 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   })
 })
 
-// Contact form handling
-document.addEventListener("DOMContentLoaded", () => {
-  const contactForm = document.getElementById("contactForm")
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault()
-
-      // Get form data
-      const formData = new FormData(contactForm)
-      const data = Object.fromEntries(formData)
-
-      // Basic validation
-      if (!data.firstName || !data.lastName || !data.email || !data.service || !data.message) {
-        showNotification("Please fill in all required fields.", "error")
-        return
-      }
-
-      // Email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (!emailRegex.test(data.email)) {
-        showNotification("Please enter a valid email address.", "error")
-        return
-      }
-
-      // Privacy policy check
-      const privacyCheck = document.getElementById("privacy")
-      if (!privacyCheck.checked) {
-        showNotification("Please accept the Privacy Policy and Terms of Service.", "error")
-        return
-      }
-
-      // Simulate form submission
-      const submitBtn = contactForm.querySelector('button[type="submit"]')
-      const originalText = submitBtn.textContent
-      submitBtn.textContent = "Sending..."
-      submitBtn.disabled = true
-
-      // Simulate API call
-      setTimeout(() => {
-        showNotification("Thank you for your message! We'll get back to you within 24 hours.", "success")
-        contactForm.reset()
-        submitBtn.textContent = originalText
-        submitBtn.disabled = false
-      }, 2000)
-    })
+// Navbar background on scroll
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar")
+  if (window.scrollY > 50) {
+    navbar.style.backgroundColor = "rgba(255, 255, 255, 0.98)"
+    navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)"
+  } else {
+    navbar.style.backgroundColor = "rgba(255, 255, 255, 0.95)"
+    navbar.style.boxShadow = "none"
   }
 })
 
-// Notification system
-function showNotification(message, type = "info") {
-  // Remove existing notifications
-  const existingNotifications = document.querySelectorAll(".notification")
-  existingNotifications.forEach((notification) => notification.remove())
-
-  // Create notification element
-  const notification = document.createElement("div")
-  notification.className = `notification notification-${type}`
-  notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    `
-
-  // Add notification styles
-  notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 9999;
-        max-width: 400px;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-        animation: slideInRight 0.3s ease-out;
-        font-family: 'Inter', sans-serif;
-    `
-
-  // Set colors based on type
-  if (type === "success") {
-    notification.style.background = "#10b981"
-    notification.style.color = "white"
-  } else if (type === "error") {
-    notification.style.background = "#ef4444"
-    notification.style.color = "white"
-  } else {
-    notification.style.background = "#3b82f6"
-    notification.style.color = "white"
-  }
-
-  // Add to page
-  document.body.appendChild(notification)
-
-  // Auto remove after 5 seconds
-  setTimeout(() => {
-    if (notification.parentElement) {
-      notification.style.animation = "slideOutRight 0.3s ease-out"
-      setTimeout(() => notification.remove(), 300)
-    }
-  }, 5000)
-}
-
-// Add notification animations to CSS
-const notificationStyles = document.createElement("style")
-notificationStyles.textContent = `
-    .notification-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-    
-    .notification-close {
-        background: none;
-        border: none;
-        color: inherit;
-        cursor: pointer;
-        padding: 0.25rem;
-        border-radius: 4px;
-        transition: background-color 0.2s;
-    }
-    
-    .notification-close:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-    
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
-`
-document.head.appendChild(notificationStyles)
-
-// Intersection Observer for animations
+// Fade in animation on scroll
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -50px 0px",
@@ -184,30 +33,26 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.style.animation = "fadeInUp 0.6s ease-out forwards"
+      entry.target.classList.add("visible")
     }
   })
 }, observerOptions)
 
-// Observe elements for animation
+// Add fade-in class to elements and observe them
 document.addEventListener("DOMContentLoaded", () => {
-  const animateElements = document.querySelectorAll(".feature-card, .service-card, .value-card, .team-card")
-  animateElements.forEach((el) => {
-    el.style.opacity = "0"
-    el.style.transform = "translateY(30px)"
+  const elementsToAnimate = document.querySelectorAll(".card, .hero-content, .lifestyle-img")
+  elementsToAnimate.forEach((el) => {
+    el.classList.add("fade-in")
     observer.observe(el)
   })
-})
 
-// Mobile menu handling
-document.addEventListener("DOMContentLoaded", () => {
+  // Mobile Navigation Enhancement
   const navbarToggler = document.querySelector(".navbar-toggler")
   const navbarCollapse = document.querySelector(".navbar-collapse")
 
   if (navbarToggler && navbarCollapse) {
     // Close mobile menu when clicking on a link
-    const navLinks = navbarCollapse.querySelectorAll(".nav-link")
-    navLinks.forEach((link) => {
+    document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
       link.addEventListener("click", () => {
         if (navbarCollapse.classList.contains("show")) {
           navbarToggler.click()
@@ -224,61 +69,190 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   }
-})
 
-// Preload images
-function preloadImages() {
-  const images = document.querySelectorAll('img[src*="placeholder"]')
-  images.forEach((img) => {
-    const newImg = new Image()
-    newImg.onload = function () {
-      img.src = this.src
-      img.style.opacity = "1"
+  // Active Navigation Highlighting
+  const currentPage = window.location.pathname.split("/").pop() || "index.html"
+  document.querySelectorAll(".nav-link").forEach((link) => {
+    const href = link.getAttribute("href")
+    if (href === currentPage || (currentPage === "" && href === "index.html")) {
+      link.classList.add("active")
+    } else {
+      link.classList.remove("active")
     }
-    newImg.src = img.src
   })
-}
 
-// Initialize preloading when page loads
-document.addEventListener("DOMContentLoaded", preloadImages)
+  // Contact Form Handling
+  const contactForm = document.getElementById("contactForm")
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault()
 
-// Add loading states for buttons
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".btn")
-  buttons.forEach((button) => {
-    button.addEventListener("click", function (e) {
-      if (this.type === "submit") return // Skip submit buttons (handled separately)
+      // Get form data
+      const formData = new FormData(this)
+      const data = Object.fromEntries(formData)
 
-      // Add loading state
-      const originalText = this.textContent
-      this.textContent = "Loading..."
-      this.disabled = true
+      // Enhanced validation
+      const requiredFields = ["firstName", "lastName", "email", "services", "message"]
+      const missingFields = requiredFields.filter((field) => !data[field] || data[field].trim() === "")
 
-      // Remove loading state after a short delay
+      if (missingFields.length > 0) {
+        alert("Please fill in all required fields: " + missingFields.join(", "))
+        return
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(data.email)) {
+        alert("Please enter a valid email address.")
+        return
+      }
+
+      // Simulate form submission with better UX
+      const submitBtn = this.querySelector('button[type="submit"]')
+      const originalText = submitBtn.textContent
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...'
+      submitBtn.disabled = true
+
       setTimeout(() => {
-        this.textContent = originalText
-        this.disabled = false
-      }, 1000)
+        alert("Thank you for your message! We'll get back to you within 24 hours.")
+        this.reset()
+        submitBtn.textContent = originalText
+        submitBtn.disabled = false
+      }, 2000)
     })
-  })
-})
+  }
 
-// Performance optimization: Lazy load images
-function lazyLoadImages() {
-  const images = document.querySelectorAll("img[data-src]")
-  const imageObserver = new IntersectionObserver((entries, observer) => {
+  // Lazy Loading for Images
+  const images = document.querySelectorAll("img")
+  const imageObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const img = entry.target
-        img.src = img.dataset.src
-        img.removeAttribute("data-src")
+        if (img.dataset.src) {
+          img.src = img.dataset.src
+          img.removeAttribute("data-src")
+        }
         imageObserver.unobserve(img)
       }
     })
   })
 
-  images.forEach((img) => imageObserver.observe(img))
-}
+  images.forEach((img) => {
+    if (img.dataset.src) {
+      imageObserver.observe(img)
+    }
+  })
+})
 
-// Initialize lazy loading
-document.addEventListener("DOMContentLoaded", lazyLoadImages)
+// Image hover effects
+document.querySelectorAll(".hero-images img, .lifestyle-img").forEach((img) => {
+  img.addEventListener("mouseenter", function () {
+    this.style.transform = "translateY(-10px) scale(1.02)"
+  })
+
+  img.addEventListener("mouseleave", function () {
+    this.style.transform = "translateY(0) scale(1)"
+  })
+})
+
+// Button click animations with ripple effect
+document.querySelectorAll(".btn").forEach((btn) => {
+  btn.style.position = "relative"
+  btn.style.overflow = "hidden"
+
+  btn.addEventListener("click", function (e) {
+    const ripple = document.createElement("span")
+    ripple.classList.add("ripple")
+
+    // Ripple styles
+    ripple.style.position = "absolute"
+    ripple.style.borderRadius = "50%"
+    ripple.style.background = "rgba(255, 255, 255, 0.6)"
+    ripple.style.transform = "scale(0)"
+    ripple.style.animation = "ripple 0.6s linear"
+    ripple.style.pointerEvents = "none"
+
+    this.appendChild(ripple)
+
+    const rect = this.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const size = Math.max(rect.width, rect.height)
+
+    ripple.style.width = ripple.style.height = size + "px"
+    ripple.style.left = x - size / 2 + "px"
+    ripple.style.top = y - size / 2 + "px"
+
+    setTimeout(() => {
+      ripple.remove()
+    }, 600)
+  })
+})
+
+// Scroll to Top Button
+const scrollToTopBtn = document.createElement("button")
+scrollToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>'
+scrollToTopBtn.className = "scroll-to-top"
+scrollToTopBtn.style.cssText = `
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+`
+
+document.body.appendChild(scrollToTopBtn)
+
+// Show/hide scroll to top button
+let scrollTimeout
+window.addEventListener("scroll", () => {
+  clearTimeout(scrollTimeout)
+  scrollTimeout = setTimeout(() => {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.style.opacity = "1"
+      scrollToTopBtn.style.visibility = "visible"
+    } else {
+      scrollToTopBtn.style.opacity = "0"
+      scrollToTopBtn.style.visibility = "hidden"
+    }
+  }, 10)
+})
+
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
+})
+
+// Performance: Debounced resize handler
+let resizeTimeout
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimeout)
+  resizeTimeout = setTimeout(() => {
+    // Recalculate any layout-dependent features
+    console.log("[v0] Window resized, recalculating layouts")
+  }, 250)
+})
+
+// Add CSS animation for ripple effect
+const style = document.createElement("style")
+style.textContent = `
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+`
+document.head.appendChild(style)
